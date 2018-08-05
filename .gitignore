@@ -1,2 +1,8 @@
+# Schtuff
 .idea/
-.archive
+.archive/
+# Terraform
+.terraform/
+terraform.tfstate*
+# Private
+secrets/auth/eks-staging-config
