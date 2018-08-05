@@ -5,4 +5,5 @@
 .terraform/
 terraform.tfstate*
 # Private
+addons/auth/config-map-aws-auth.yaml
 secrets/auth/eks-staging-config
