@@ -21,6 +21,8 @@ apply: tf-init
 clean: ## Destroy existing kubernetes resources, current build, and all generated files
 	terraform destroy --force -auto-approve
 	rm -f secrets/auth/eks-staging-config
+	rm -f /tmp/kubes-eks.plan 
+	rm -rf /tmp/kubes-eks/*
 	#aws s3 rm s3://ptest.vault/secrets --recursive
 	#rm -rf $(ASSET_DIR)
 	#rm -rf ./secrets/*

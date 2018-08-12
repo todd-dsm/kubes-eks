@@ -51,7 +51,6 @@ resource "aws_iam_instance_profile" "demo-node" {
 #  * This security group controls networking access to the Kubernetes worker nodes.
 #
 
-
 resource "aws_security_group" "demo-node" {
   name        = "terraform-eks-demo-node"
   description = "Security group for all nodes in the cluster"
@@ -175,6 +174,8 @@ resource "aws_autoscaling_group" "demo" {
   min_size             = 1
   name                 = "terraform-eks-demo"
   vpc_zone_identifier  = ["${aws_subnet.demo.*.id}"]
+
+  load_balancers = ["${aws_elb.ingress.id}"]
 
   tag {
     key                 = "Name"
